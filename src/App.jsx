@@ -1,9 +1,15 @@
-import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+import Reagister from './pages/Reagister'
+import Login from './pages/Login'
+
 
 function App() {
   return (
     <>
-      <h1>App</h1>
+      <Routes>
+        <Route path='/register' element={<Reagister></Reagister>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+      </Routes>
     </>
   )
 }
