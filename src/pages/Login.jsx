@@ -8,8 +8,8 @@ import { NavLink } from "react-router-dom";
 function Login() {
   return (
     <>
-      <div className="container mx-auto w-1/1">
-          <div className="flex flex-col gap-5 mt-8 bg-white py-4 px-6 rounded-lg w-[400px]">
+      <div className="container mx-auto w-1/2">
+          <div className="flex flex-col gap-5 mt-8 bg-white py-4 px-6 rounded-lg w-[380px]">
             <div className='flex justify-between items-center'>
               <span></span>
               <h1 className="text-center font-bold text-3xl">Welcome back!</h1>

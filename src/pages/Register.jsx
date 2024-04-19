@@ -39,8 +39,8 @@ function Register() {
 
   return (
     <>
-      <div className="container mx-auto w-2/6">
-          <div className="flex flex-col gap-5 mt-5 mb-5 bg-white py-4 px-6 rounded-lg">
+      <div className="container mx-auto w-1/2">
+          <div className="flex flex-col gap-5 mt-5 mb-5 bg-white py-4 px-6 rounded-lg w-[380px]">
             <div className='flex justify-between items-center'>
               <span></span>
               <h1 className="text-center font-bold text-4xl">Let's go!</h1>
