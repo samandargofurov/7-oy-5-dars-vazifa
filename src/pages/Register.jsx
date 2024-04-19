@@ -15,7 +15,6 @@ function Register() {
   const passwordRef = useRef(null);
   const repasswordRef = useRef(null);
   const dispatch = useDispatch();
-
   const navigate = useNavigate();
 
 
@@ -39,7 +38,7 @@ function Register() {
 
   return (
     <>
-      <div className="container mx-auto w-11/12">
+      <div className="container mx-auto w-1/2">
           <div className="flex flex-col gap-5 mt-10 bg-white py-4 px-6 rounded-lg">
             <div className='flex justify-between items-center'>
               <span></span>

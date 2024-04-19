@@ -1,12 +1,21 @@
 import { IoMoonOutline } from "react-icons/io5";
 import { FaRegEye } from "react-icons/fa";
 import lock from '../assets/lock.svg'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+
 
 function ForgotPassword() {
+  const navigate = useNavigate();
+
+  function handleClick(e){
+    e.preventDefault();
+  
+    navigate('/login')
+  }
+
   return (
     <>
-      <div className="container mx-auto w-11/12">
+      <div className="container mx-auto w-1/2">
           <div className="flex flex-col gap-5 mt-8 bg-white py-4 px-6 rounded-lg">
             <div className='flex justify-between items-center'>
               <span></span>
@@ -37,7 +46,7 @@ function ForgotPassword() {
               <NavLink to='/login'>Login</NavLink>
             </div>
 
-            <button className='signup text-white rounded-lg p-4 mb-3 font-bold'>Save</button>
+            <button onClick={handleClick} className='signup text-white rounded-lg p-4 mb-3 font-bold'>Save</button>
 
             <div className="border-t-2 border-gray-300">
               <p className='text-center mt-2 text-gray-500' style={{fontSize: '11px'}}>By lobby the button above, you agree to our <NavLink className="underline">Terms of Service</NavLink> and <NavLink className="underline">Privacy Policy</NavLink>.</p>

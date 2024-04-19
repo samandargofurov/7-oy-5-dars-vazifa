@@ -1,6 +1,15 @@
-import { NavLink } from "react-router-dom"
+import { useDispatch } from "react-redux"
+import { NavLink, useNavigate } from "react-router-dom"
+import remove from '../redux/tokenSlice'
 
 function Home() {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    dispatch(remove());
+    navigate('/login');
+  }
   return (
     <>
         <div className="container mx-auto w-96">
@@ -10,6 +19,8 @@ function Home() {
                         <NavLink to='/login'>Login</NavLink>
                     </div>
             </div>
+
+            <button onClick={handleLogout}>Logout</button>
         </div>
     </>
   )

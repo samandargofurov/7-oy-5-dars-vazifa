@@ -18,7 +18,7 @@ function App() {
   }, [navigate, token])
 
   function PrivateRoute({children, isAuthentication, redirectTo = '/login'}) {
-    if (isAuthentication) {
+    if (!isAuthentication) {
       navigate(redirectTo);
     }
 
@@ -34,7 +34,7 @@ function App() {
         <Route path='/forgotPassword' element={<ForgotPassword></ForgotPassword>}></Route>
 
         {/* private */}
-        <Route path='/' element={<PrivateRoute isAuthentication={true ? true : false}><Home></Home></PrivateRoute>}></Route>
+        <Route path='/' element={<PrivateRoute isAuthentication={token ? true : false}><Home></Home></PrivateRoute>}></Route>
       </Routes>
     </>
   )
