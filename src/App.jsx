@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Route, Routes, useNavigate } from 'react-router-dom'
+import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import Register from './pages/Register'
 import Login from './pages/Login'
 import ForgotPassword from './pages/ForgotPassword'
@@ -9,9 +9,10 @@ import { useSelector } from 'react-redux'
 function App() {
   const navigate = useNavigate();
   const token = useSelector(state => state.token.value);
+  const location = useLocation();
 
   useEffect(() => {
-    if (!token) {
+    if (!token && location.pathname != '/register' && location.pathname != '/forgotPassword') {
       navigate('/login')
     }
   }, [navigate, token])

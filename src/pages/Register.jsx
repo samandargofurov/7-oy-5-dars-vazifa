@@ -4,9 +4,39 @@ import userIcon from '../assets/user.svg'
 import googleIcon from '../assets/googleIcon.svg'
 import sms from '../assets/sms.svg'
 import lock from '../assets/lock.svg'
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { register } from "../redux/usersSlice";
 
 function Register() {
+  const nameRef = useRef(null);
+  const emailRef = useRef(null);
+  const passwordRef = useRef(null);
+  const repasswordRef = useRef(null);
+  const dispatch = useDispatch();
+
+  const navigate = useNavigate();
+
+
+  function handleClick(e) {
+    e.preventDefault();
+    const user = {
+      name: nameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      repasswordRef: repasswordRef.current.value
+    }
+
+    dispatch(register(user))
+    nameRef.current.value = null;
+    emailRef.current.value = null;
+    passwordRef.current.value = null;
+    repasswordRef.current.value = null;
+
+    navigate('/login')
+  }
+
   return (
     <>
       <div className="container mx-auto w-2/6">
@@ -21,7 +51,7 @@ function Register() {
               <label htmlFor="name">Full Name</label>
               <div className="flex gap-2 border rounded-lg py-2 px-3 mt-2">
                 <img src={userIcon} alt="" />
-                <input className="w-96 outline-none bg-transparent" type="text" placeholder="John Doe" />
+                <input ref={nameRef} className="w-96 outline-none bg-transparent" type="text" placeholder="John Doe" />
               </div>
             </div>
 
@@ -29,7 +59,7 @@ function Register() {
               <label htmlFor="email">Email</label>
               <div className="flex gap-2 border rounded-lg py-3 px-3 mt-2">
                 <img src={sms} alt="" />
-                <input className="w-96 outline-none bg-transparent" type="email" placeholder="example@site.com" />
+                <input ref={emailRef} className="w-96 outline-none bg-transparent" type="email" placeholder="example@site.com" />
               </div>
             </div>
 
@@ -37,7 +67,7 @@ function Register() {
               <label htmlFor="name">Choose Password</label>
               <div className="flex gap-2 border rounded-lg py-3 px-3 mt-2">
                 <img src={lock} alt="" />
-                <input className="w-96 outline-none bg-transparent" type="password" placeholder="Minimum 8 characters" />
+                <input ref={passwordRef} className="w-96 outline-none bg-transparent" type="password" placeholder="Minimum 8 characters" />
                 <FaRegEye className="text-2xl cursor-pointer opacity-50" />
               </div>
             </div>
@@ -46,12 +76,12 @@ function Register() {
               <label htmlFor="name">Confirm Password</label>
               <div className="flex gap-2 items-center border rounded-lg py-3 px-3 mt-2">
                 <img src={lock} alt="" />
-                <input className="w-96 outline-none bg-transparent" type="password" placeholder="Confirm Password" />
+                <input ref={repasswordRef} className="w-96 outline-none bg-transparent" type="password" placeholder="Confirm Password" />
                 <FaRegEye className="text-2xl cursor-pointer opacity-50" />
               </div>
             </div>
 
-            <button className='signup text-white rounded-lg p-4 mt-5 mb-3 font-bold'>Sign Up</button>
+            <button onClick={handleClick} className='signup text-white rounded-lg p-4 mt-5 mb-3 font-bold'>Sign Up</button>
 
             <div className="flex flex-col items-center gap-4">
               <button className="google flex justify-center rounded-lg border py-3 w-full items-center gap-3">

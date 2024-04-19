@@ -8,8 +8,8 @@ import { NavLink } from "react-router-dom";
 function Login() {
   return (
     <>
-      <div className="container mx-auto w-2/6">
-          <div className="flex flex-col gap-5 mt-8 bg-white py-4 px-6 rounded-lg">
+      <div className="container mx-auto w-1/1">
+          <div className="flex flex-col gap-5 mt-8 bg-white py-4 px-6 rounded-lg w-[400px]">
             <div className='flex justify-between items-center'>
               <span></span>
               <h1 className="text-center font-bold text-3xl">Welcome back!</h1>
@@ -38,19 +38,15 @@ function Login() {
                 <NavLink to='/forgotPassword'>Forgot Password?</NavLink>
             </div>
 
-            <button className='signup text-white rounded-lg p-4 mb-3 font-bold'>Sign Up</button>
+            <button className='signup text-white rounded-lg p-4 mb-3 font-bold'>Sign In</button>
 
-            <div className="flex flex-col items-center gap-4">
+            <div className="flex flex-col items-center gap-4 mb-5">
               <button className="google flex justify-center rounded-lg border py-3 w-full items-center gap-3">
                 <img src={googleIcon} alt="" />
                 <span className="tetx-white">Sign Up with Google</span>
               </button>
 
               <NavLink to='/register'>or register with SSO</NavLink>
-            </div>
-
-            <div className="border-t-2 border-gray-300">
-              <p className='text-center mt-2 text-gray-500' style={{fontSize: '11px'}}>By lobby the button above, you agree to our <NavLink className="underline">Terms of Service</NavLink> and <NavLink className="underline">Privacy Policy</NavLink>.</p>
             </div>
           </div>
       </div>
