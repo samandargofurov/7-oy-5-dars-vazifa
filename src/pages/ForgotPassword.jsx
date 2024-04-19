@@ -1,13 +1,12 @@
 import { IoMoonOutline } from "react-icons/io5";
 import { FaRegEye } from "react-icons/fa";
-import googleIcon from '../assets/googleIcon.svg'
 import lock from '../assets/lock.svg'
 import { NavLink } from "react-router-dom";
 
 function ForgotPassword() {
   return (
     <>
-      <div className="container mx-auto w-2/6">
+      <div className="container mx-auto w-11/12">
           <div className="flex flex-col gap-5 mt-8 bg-white py-4 px-6 rounded-lg">
             <div className='flex justify-between items-center'>
               <span></span>
@@ -31,6 +30,11 @@ function ForgotPassword() {
                 <input className="w-96 outline-none bg-transparent" type="password" placeholder="Confirm Password" />
                 <FaRegEye className="text-2xl cursor-pointer opacity-50" />
               </div>
+            </div>
+
+            <div className="flex justify-between">
+              <span></span>
+              <NavLink to='/login'>Login</NavLink>
             </div>
 
             <button className='signup text-white rounded-lg p-4 mb-3 font-bold'>Save</button>
