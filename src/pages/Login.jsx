@@ -33,7 +33,7 @@ function Login() {
 
   return (
     <>
-      <div className="container mx-auto w-96">
+      <div className="container mx-auto w-1/2">
           <div className="flex flex-col gap-5 mt-10 bg-white py-4 px-6 rounded-lg">
             <div className='flex justify-between items-center'>
               <span></span>
